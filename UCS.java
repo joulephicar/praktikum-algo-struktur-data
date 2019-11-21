@@ -10,7 +10,6 @@ import java.math.*;
 import java.util.regex.*;
 
 class Node {
-
    char nama;
    Node parent;
    int fn;
@@ -22,7 +21,6 @@ class Node {
 }
 
 class Edge {
-
    Node from;
    Node to;
    int jarak;
@@ -42,7 +40,7 @@ class Graf {
       Edge e = new Edge(from, to, jarak);
       ale.add(e);
    }
-
+   // traversal untuk mencari node-node yang berhubungan dengan node from
    ArrayList traversal(Node from) {
       ArrayList<Node> cari = new ArrayList<>();
       for (int i = 0; i < ale.size(); i++) {
@@ -94,7 +92,6 @@ class Graf {
             path.add(from);
             break;
          }
-         // parentnya rada error
          ArrayList<Node> lSucc = traversal(Nmin);
          Nmin.expanded = true;
          for (Node lSucc1 : lSucc) {
@@ -114,9 +111,7 @@ class Graf {
             lSucc1.fn = Nmin.fn + W(Nmin, lSucc1);
             open.add(lSucc1);
          }
-//         System.out.println("sadafasfa");
       }
-      // Lengkapi!!
       return path;
    }
 
